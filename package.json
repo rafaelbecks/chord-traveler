@@ -1,0 +1,16 @@
+{
+  "name": "midi-walker",
+  "version": "1.0.0",
+  "description": "A MIDI visualizer project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["midi", "visualizer", "canvas"],
+  "author": "",
+  "license": "MIT"
+} 

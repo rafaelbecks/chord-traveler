@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chord Traveler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="debug">Waiting for MIDI input...</div>
+  
+  <div id="controls">
+    <div class="control-group">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    
+    <div class="control-group">
+      <label for="chordTimeout">Chord Timeout (ms):</label>
+      <input type="range" id="chordTimeout" min="50" max="300" value="150" step="10">
+      <span id="timeoutValue">150ms</span>
+    </div>
+    
+    <button id="regenerate">Regenerate Terrain</button>
+  </div>
+  
+  <button id="infoButton">?</button>
+  
+  <div id="modal">
+    <div id="modalContent">
+      <button id="closeModal">×</button>
+      <h1>Chord Traveler</h1>
+      <p>A generative web game controlled by MIDI input. Navigate a character across procedurally generated terrain using musical chords.</p>
+      
+      <h2>Controls</h2>
+      <ul>
+        <li><strong>Single note</strong>: Step forward</li>
+        <li><strong>3-note chord</strong>: Jump</li>
+        <li><strong>4+ note chord</strong>: Higher jump</li>
+        <li><strong>Bass notes</strong>: Increase jump distance</li>
+      </ul>
+      
+      <h2>Setup</h2>
+      <ol>
+        <li>Connect a MIDI controller to your computer</li>
+        <li>Open this page in a web browser</li>
+        <li>Allow MIDI access when prompted</li>
+        <li>Start playing</li>
+      </ol>
+      
+      <p><strong>Made by Rafael Becerra</strong> (with some machine help)</p>
+      <p>Repository: <a href="https://github.com/rafaelbecks/chord-traveler" target="_blank">https://github.com/rafaelbecks/chord-traveler</a></p>
+    </div>
+  </div>
+  
+  <script src="game.js" type="module"></script>
+</body>
+</html>
+
