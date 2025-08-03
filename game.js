@@ -3,7 +3,6 @@ import { Character } from './character.js';
 import { TerrainManager } from './terrain.js';
 import { MIDIController } from './midi.js';
 import { BackgroundVisuals } from './visuals.js';
-import { ParticleSystem } from './particles.js';
 import { UIController, drawVectrexText } from './ui.js';
 
 export class Game {
@@ -36,7 +35,6 @@ export class Game {
     this.terrainManager = new TerrainManager(this.canvas);
     this.midiController = new MIDIController();
     this.backgroundVisuals = new BackgroundVisuals();
-    this.particleSystem = new ParticleSystem();
     this.uiController = new UIController();
     
     // Game state
@@ -122,12 +120,6 @@ export class Game {
     } else {
       console.log('Jumping!'); // Debug log
       this.character.jump(jumpPower, jumpDistance);
-      this.particleSystem.createJumpParticles(
-        this.character.x, 
-        this.character.y + this.character.size * 0.5, 
-        jumpPower, 
-        this.hue
-      );
     }
     
     this.uiController.updateDebugInfo(chord, jumpPower, jumpDistance, this.difficulty, this.chordTimeout);
@@ -149,7 +141,6 @@ export class Game {
         this.uiController.setDebugMessage('You fell!');
         this.character.reset();
         this.camera.x = 0;
-        this.particleSystem.createFallParticles(this.character.x, this.character.y, this.hue);
       }
       
       // Update camera position
@@ -180,10 +171,6 @@ export class Game {
 
     // Draw terrain
     this.terrainManager.drawTerrain(this.ctx, this.camera, this.hue);
-
-    // Update and draw particles
-    this.particleSystem.update();
-    this.particleSystem.draw(this.ctx);
 
     // Draw character
     this.character.draw(this.ctx, this.camera, this.hue);
