@@ -24,6 +24,5 @@ A generative web game controlled by MIDI input. Navigate a character across proc
 - `terrain.js` - Terrain generation and collision
 - `midi.js` - MIDI input handling and chord detection
 - `visuals.js` - Background visual effects
-- `particles.js` - Particle system
 - `ui.js` - User interface and controls
 - `config.js` - Game configuration 
